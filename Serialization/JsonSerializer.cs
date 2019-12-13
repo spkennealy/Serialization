@@ -1,6 +1,6 @@
 ﻿namespace Serialization
 {
-    public static class Serializer
+    public static class JsonSerializer
     {
             
     }
