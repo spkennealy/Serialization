@@ -36,5 +36,16 @@ namespace Serialization
                 return (T)ser.Deserialize(ms);
             }
         }
+
+        public static string SerializeToXml<T>(T objectToSerialize)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(objectToSerialize.GetType());
+
+            using (StringWriter textWriter = new StringWriter())
+            {
+                xmlSerializer.Serialize(textWriter, objectToSerialize);
+                return textWriter.ToString();
+            }
+        }
     }
 }
