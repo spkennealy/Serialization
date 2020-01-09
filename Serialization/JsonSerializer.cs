@@ -18,5 +18,13 @@ namespace Serialization
                 return Encoding.UTF8.GetString(ms.ToArray());
             }
         }
+
+        public static T FromJson<T>(string json)
+        {
+            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+            {
+                return jsonSerializer.Deserialize<T>(ms);
+            }
+        }
     }
 }
