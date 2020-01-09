@@ -26,5 +26,15 @@ namespace Serialization
                 return jsonSerializer.Deserialize<T>(ms);
             }
         }
+
+        public static T DeserializeXml<T>(object input) where T : class
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(T));
+
+            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(input.ToString())))
+            {
+                return (T)ser.Deserialize(ms);
+            }
+        }
     }
 }
