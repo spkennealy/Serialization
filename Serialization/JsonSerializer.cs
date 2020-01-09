@@ -48,4 +48,13 @@ namespace Serialization
             }
         }
     }
+
+    public static class Utils
+    {
+        public static string EncodeBase64(string plainText)
+        {
+            var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            return Convert.ToBase64String(plainTextBytes);
+        }
+    }
 }
