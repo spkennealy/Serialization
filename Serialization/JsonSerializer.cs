@@ -6,7 +6,7 @@ using System;
 
 namespace Serialization
 {
-    public static class JsonSerializer
+    public static class Serializer
     {
         private static readonly JsonSerializer jsonSerializer = new JsonSerializer();
 
@@ -55,6 +55,12 @@ namespace Serialization
         {
             var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
             return Convert.ToBase64String(plainTextBytes);
+        }
+
+        public static string ExtractIdFromUrl(string url)
+        {
+            var splitUrl = url.Split('/');
+            return splitUrl[splitUrl.Length - 1];
         }
     }
 }
